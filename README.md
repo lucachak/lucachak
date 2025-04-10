@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Lucas Lucachak</h1>
-<h3 align="center">I really like backend, although being versitle is a little more interresting</h3>
+<h3 align="center">I really like backend, although being versitle is a little more interesting</h3>
 
 - 🔭 I’m currently working on [a Django Saas project](https://github.com/lucachak/Store)
 
