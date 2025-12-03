@@ -1,59 +1,72 @@
-<h1 align="center">Hi 👋, I'm Lucas Lucachak</h1>
-<h3 align="center">I really like backend, although being versitle is a little more interesting</h3>
-
-- 🔭 I’m currently working on [a Django Saas project](https://github.com/lucachak/Store)
-
-- 🌱 I’m currently learning **Django - Rest framework and Diving in the FrontEnd field**
-
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> 
-  <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/>
-  </a>
-  <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> 
-  </a> 
-  <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer">
-    <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/>
-  </a>
-  <a href="https://www.figma.com/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
-  </a>
-  <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> 
-    <img src="https://www.vectorlogo.zone/logos/palletsprojects_flask/palletsprojects_flask-icon~v2.svg"  alt="flask" width="40" height="40"/>
-  </a> 
-  <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
-  </a> <a href="https://www.java.com" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>
-  </a>
-  <a href="https://www.linux.org/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> 
-  </a> 
-  <a href="https://mariadb.org/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40"/>
-  </a> 
-  <a href="https://www.mysql.com/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>
-  </a>
-  <a href="https://www.nginx.com" target="_blank" rel="noreferrer"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/>
-  </a> 
-  <a href="https://postman.com" target="_blank" rel="noreferrer">
-      <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer">
-        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
-      </a> 
-  <a href="https://www.selenium.dev" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> 
-  </a>
-  <a href="https://spring.io/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/>
-  </a>
-  <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> 
-  </a> 
-  <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
-  </a>
+<!-- ========================= BANNER ========================= -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0e0f12,100:2f80ed&height=250&section=header&text=Lucas%20Lucachak&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38"/>
 </p>
 
+<!-- ========================= TITLE ========================= -->
+<h2 align="center">Backend Developer • Learning in Public • Breaking & Building Things 🧪</h2>
+
+<p align="center">
+  <samp>A backend-focused dev building real-world systems from scratch — fast, structured, and a little hacker-ish.</samp>
+</p>
+
+<br/>
+
+---
+
+# ⚡ About Me
+
+- 🧠 **Backend-first developer** (FastAPI, Python, Django, Routing Engines)  
+- 🚀 Currently building: **CourierIQ**, a full delivery-optimization system  
+- 🎯 Goal: Become a strong backend/software engineer by actually shipping things  
+- 💡 Learning by build → refactor → break → rebuild → improve  
+- 🧩 I like algorithms, clean architecture, and code that feels *alive*  
+
+---
+
+# 🛰️ Featured Project — **CourierIQ**
+
+> **A full routing engine built from scratch.**  
+> A learning project designed like a real production system.
+
+### 🔹 Features
+- Route optimization (simulated annealing, nearest-neighbor, heuristics)  
+- ETA prediction  
+- Dynamic re-optimization  
+- Delivery heatmap generation  
+- Performance testing suite  
+- FastAPI controllers, schemas, modular architecture  
+
+### 🔹 Repo  
+👉 https://github.com/lucachak/CourierIQ
+
+<p align="center">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Algorithmic%20Routing-000000?style=for-the-badge"/>
+</p>
+
+---
+
+# 🛠️ Tech Stack
+
+### 🧩 **Languages & Frameworks**
+<p>
+  <img src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=ffdd54"/>
+  <img src="https://img.shields.io/badge/FastAPI-0d1117?style=for-the-badge&logo=fastapi&logoColor=00b894"/>
+  <img src="https://img.shields.io/badge/Django-0d1117?style=for-the-badge&logo=django&logoColor=0FA958"/>
+  <img src="https://img.shields.io/badge/Java-0d1117?style=for-the-badge&logo=openjdk&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Flask-0d1117?style=for-the-badge&logo=flask&logoColor=white"/>
+</p>
+
+### 🗄️ **Databases**
+<p>
+  <img src="https://img.shields.io/badge/MySQL-0d1117?style=for-the-badge&logo=mysql&logoColor=00d8ff"/>
+  <img src="https://img.shields.io/badge/SQLite-0d1117?style=for-the-badge&logo=sqlite&logoColor=0FA9E6"/>
+</p>
+
+### ⚙️ **Tools & Systems**
+<p>
+  <img src="https://img.shields.io/badge/Linux-0d1117?style=for-the-badge&logo=linux&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=F05033"/>
+  <img src="https://img.shields.io/badge/Nginx-0d1117?styl
