@@ -27,8 +27,9 @@
   "education": "B.Sc. Computer Science — University of Debrecen (Merit Scholarship)",
   "experience_abroad": ["Ireland — 4 years", "Hungary — 3 years"],
   "languages": ["pt_BR", "en_US", "hu_HU", "ru_RU"],
-  "stack": ["Java", "Spring Boot", "Python", "Django", "Docker", "PostgreSQL"],
+  "stack": ["Java", "Spring Boot", "Python", "Django", "FastAPI", "Docker", "PostgreSQL"],
   "currently": "SOC & Automation Engineer | pursuing eJPT + CompTIA Security+",
+  "research": "LoRA/QLoRA fine-tuning for offensive security applications",
   "philosophy": "Build → break → understand → rebuild."
 }
 ```
@@ -41,30 +42,30 @@ Systems currently running in production:
 
 | Project | Description | Stack | Status |
 |---|---|---|---|
-| [FinGen](https://fingen-app.onrender.com/) | AI-powered personal finance SaaS — analyzes bank statements and suggests debt payoff strategies | Java · Spring Boot · Docker · OpenRouter AI | 🟢 Live |
-| [CambioMatic](https://cambiomatic.onrender.com/) | Full ERP for automotive transmission repair shops — inventory, service orders, client management | Java · Spring Boot · Thymeleaf · PostgreSQL | 🟢 Live |
+| [FinGen](https://fingen-app.onrender.com/) | AI-powered personal finance SaaS — analyzes bank statements (PDF/CSV) and suggests debt payoff strategies via LLM integration | Java · Spring Boot · Docker · OpenRouter AI | 🟢 Live |
+| [CambioMatic](https://cambiomatic.onrender.com/) | Full ERP for automotive transmission repair shops — inventory control, service orders, budget generation and client management | Java · Spring Boot · Thymeleaf · PostgreSQL | 🟢 Live |
 | [Portfolio](https://portifolio-vercel-inky.vercel.app/) | Interactive developer portfolio | Vercel | 🟢 Live |
 
 ---
 
 ## `~/security --offensive`
 
-Security is not an afterthought. My backend work is shaped by hands-on offensive experience.
+I build the attack first. The defense follows from understanding it.
+
+| Tool | Attack Vector | Defense Applied |
+|---|---|---|
+| [Dirpy](https://github.com/lucachak/Dirpy) | Endpoint enumeration — discovers hidden routes and admin panels | Enforced authentication on all non-public routes |
+| [OSIMPY](https://github.com/lucachak/OSIMPY) | OSINT + dorking — automates personal data and credential exposure discovery | Data minimization, leak remediation, PII scrubbing |
+| [Arachne](https://github.com/lucachak/Arachne) | Human-simulated request flooding — Gaussian delays, custom headers, evasion-aware | Rate limiting and behavioral anomaly detection |
 
 **CTF & Platforms**
 - 🏴 picoCTF — `~3200 pts`
 - 🟥 HackTheBox — active
 - 🟩 TryHackMe — Jr. Penetration Tester path
 
-**Tools I built**
+**Current research:** Fine-tuning a LoRA/QLoRA model on security-focused datasets — offensive techniques, CVE pattern analysis, and defensive countermeasures — using PyTorch + scikit-learn + TensorFlow.
 
-| Repo | What it does |
-|---|---|
-| [OSIMPY](https://github.com/lucachak/OSIMPY) | OSINT automation — combines Google dorking techniques to gather intel on targets |
-| [Arachne](https://github.com/lucachak/Arachne) | Human behavior simulation bot — Gaussian delays, custom headers, evasion-aware |
-| [Dirpy](https://github.com/lucachak/Dirpy) | Dirbuster-like web directory enumerator — pure Python stdlib, zero dependencies |
-
-**Methodology:** I design APIs with offensive principles in mind — OWASP threat modeling, auth hardening, and input validation from the first commit, not as an afterthought.
+**Methodology:** APIs designed with offensive principles from the first commit — OWASP threat modeling, JWT/HttpOnly cookie auth, input validation and rate limiting as defaults, not patches.
 
 ---
 
@@ -77,20 +78,36 @@ Security is not an afterthought. My backend work is shaped by hands-on offensive
 ![Python](https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=4ade80&labelColor=000000)
 ![Django](https://img.shields.io/badge/Django-0d1117?style=for-the-badge&logo=django&logoColor=4ade80&labelColor=000000)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0d1117?style=for-the-badge&logo=fastapi&logoColor=4ade80&labelColor=000000)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-0d1117?style=for-the-badge&logo=python&logoColor=4ade80&labelColor=000000)
+
+**Automation & AI**
+
+![Selenium](https://img.shields.io/badge/Selenium-0d1117?style=for-the-badge&logo=selenium&logoColor=4ade80&labelColor=000000)
+![PyAutoGUI](https://img.shields.io/badge/PyAutoGUI-0d1117?style=for-the-badge&logo=python&logoColor=4ade80&labelColor=000000)
+![PyTorch](https://img.shields.io/badge/PyTorch-0d1117?style=for-the-badge&logo=pytorch&logoColor=4ade80&labelColor=000000)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-0d1117?style=for-the-badge&logo=scikitlearn&logoColor=4ade80&labelColor=000000)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-0d1117?style=for-the-badge&logo=tensorflow&logoColor=4ade80&labelColor=000000)
 
 **Infrastructure**
 
 ![Docker](https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=4ade80&labelColor=000000)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=4ade80&labelColor=000000)
 ![Nginx](https://img.shields.io/badge/Nginx-0d1117?style=for-the-badge&logo=nginx&logoColor=4ade80&labelColor=000000)
-![Linux](https://img.shields.io/badge/Arch_Linux-0d1117?style=for-the-badge&logo=archlinux&logoColor=4ade80&labelColor=000000)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=4ade80&labelColor=000000)
+![MySQL](https://img.shields.io/badge/MySQL-0d1117?style=for-the-badge&logo=mysql&logoColor=4ade80&labelColor=000000)
+![SQLite](https://img.shields.io/badge/SQLite-0d1117?style=for-the-badge&logo=sqlite&logoColor=4ade80&labelColor=000000)
+![VMware](https://img.shields.io/badge/VMware-0d1117?style=for-the-badge&logo=vmware&logoColor=4ade80&labelColor=000000)
 
 **Tooling**
 
+![Arch Linux](https://img.shields.io/badge/Arch_Linux-0d1117?style=for-the-badge&logo=archlinux&logoColor=4ade80&labelColor=000000)
 ![Neovim](https://img.shields.io/badge/Neovim-0d1117?style=for-the-badge&logo=neovim&logoColor=4ade80&labelColor=000000)
 ![Git](https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=4ade80&labelColor=000000)
 
-**Depth:** Native terminal workflow on Arch Linux. Python internals — `__slots__`, metaclasses, dunder methods for memory and performance optimization. Spring Boot — custom security filters, JWT/HttpOnly cookies, service-layer architecture.
+**Depth:**
+- Python internals — `__slots__`, metaclasses, dunder methods for memory and performance optimization; pure stdlib when portability matters
+- Spring Boot — custom security filters, JWT/HttpOnly cookies, service-layer architecture
+- Infra — containerized production deployments on Docker; VM management on VMware, VirtualBox and QEMU (including GPU passthrough); Nginx reverse proxy + WSGI configuration
+- WebSocket integration (basic)
 
 ---
 
