@@ -119,12 +119,6 @@ Systems currently running in production:
 ---
 
 ### `~/metrics`
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=lucachak&show_icons=true&hide_border=true&bg_color=0D1117&title_color=4ade80&text_color=ffffff&icon_color=4ade80" width="48%"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=lucachak&hide_border=true&background=0D1117&ring=4ade80&fire=4ade80&currStreakNum=ffffff&currStreakLabel=4ade80&sideNums=ffffff&sideLabels=ffffff&dates=ffffff" width="48%"/>
-</p>
-
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=lucachak&bg_color=0D1117&color=4ade80&line=4ade80&point=ffffff&area=true&hide_border=true" width="97%"/>
 </p>
