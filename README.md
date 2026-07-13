@@ -1,6 +1,6 @@
 <!-- HEADER -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:000000&height=200&section=header&text=Lucas%20Lucachak&fontSize=48&fontColor=4ade80&desc=Backend%20Engineer%20%7C%20Security%20Researcher&descSize=16&descAlignY=58&animation=fadeIn&fontAlignY=32" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:000000&height=160&text=Lucas%20Lucachak&fontSize=52&fontColor=4ade80&desc=Backend%20Engineer%20%7C%20Security%20Researcher&descSize=18&descAlignY=72&descAlign=50&animation=twinkling" width="100%"/>
 
   <br>
 
@@ -136,4 +136,4 @@ Systems currently running in production:
 </div>
 
 <!-- FOOTER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:000000&height=100&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:000000&height=80" width="100%"/>
