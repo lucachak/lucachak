@@ -1,170 +1,158 @@
-<!-- HEADER -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:000000&height=160&text=Lucas%20Lucachak&fontSize=52&fontColor=4ade80&desc=Backend%20Engineer%20%7C%20Security%20Researcher&descSize=18&descAlignY=72&descAlign=50&animation=twinkling" width="100%"/>
-# Lucas Lucachak
+<h1 align="center">Lucas Lucachak</h1>
 
-  <br>
-Backend engineer and security researcher. I build the attack first; the defense follows from understanding it.
+<p align="center">
+  <strong>SOC analyst and backend developer, working on identity, access control and security tooling.</strong><br>
+  Python · Java · Go — Keycloak, Microsoft Entra ID, Azure
+</p>
 
-  <a href="https://linkedin.com/in/lucachak-dev">
-    <img src="https://img.shields.io/badge/LinkedIn-lucachak--dev-0d1117?style=for-the-badge&logo=linkedin&logoColor=4ade80&labelColor=000000"/>
-  </a>
-  <a href="mailto:lucas.lucachak9@gmail.com">
-    <img src="https://img.shields.io/badge/Email-lucas.lucachak9-0d1117?style=for-the-badge&logo=gmail&logoColor=4ade80&labelColor=000000"/>
-  </a>
-  <a href="https://portifolio-vercel-inky.vercel.app/">
-    <img src="https://img.shields.io/badge/Portfolio-Live-0d1117?style=for-the-badge&logo=vercel&logoColor=4ade80&labelColor=000000"/>
-  </a>
+<p align="center">
+  <a href="https://portifolio-vercel-inky.vercel.app">Portfolio</a> ·
+  <a href="https://linkedin.com/in/lucachak-dev">LinkedIn</a> ·
+  <a href="mailto:lucas.lucachak9@gmail.com">Email</a>
+</p>
 
-  <br><br>
+---
 
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=4ADE80&center=true&vCenter=true&width=600&lines=Build+%E2%86%92+Break+%E2%86%92+Understand+%E2%86%92+Rebuild;SOC+%26+Automation+Engineer;Offensive+Security+%2B+Backend+Systems" alt="typing-svg" />
-</div>
+## About
+
+I'm a software engineer based in São Paulo, studying Computer Science at the
+University of Debrecen (Hungary) on a merit scholarship. I currently work in a
+**SOC**, and outside of that I build backend systems, the sign-in and
+access-control layer around them, and my own security tools.
+
+- Day job: security operations in a SOC.
+- Production apps with real users: Java/Spring Boot and Python/Django, shipped with Docker.
+- Identity: OpenID Connect SSO with Keycloak, Microsoft Entra ID roles driving application access, and Zero Trust SSH.
+- Tooling: OSINT, recon and scanning tools written from scratch, plus CTFs and lab research.
+- Hungarian citizen (no EU visa needed). Fluent in English and Portuguese, conversational Hungarian.
+- **Open to** junior developer or security-adjacent roles, remote or in Europe.
+
+<details>
+<summary><strong>🇧🇷 Resumo em português</strong></summary>
 
 <br>
 
----
-[LinkedIn](https://linkedin.com/in/lucachak-dev) · [Email](mailto:lucas.lucachak9@gmail.com) · [Portfolio](https://portifolio-vercel-inky.vercel.app/)
+Sou desenvolvedor de software em São Paulo, estudando Ciência da Computação na
+Universidade de Debrecen (Hungria), com bolsa de mérito. Atualmente trabalho em
+um **SOC** e, fora disso, construo sistemas backend, a camada de login, SSO e
+controle de acesso ao redor deles, e minhas próprias ferramentas de segurança.
 
-```json
-{
-  "name": "Lucas Lucachak",
-"role": "Backend Engineer & Security Researcher",
-  "location": "São Paulo, BR (EU Passport — remote-ready)",
-  "education": "B.Sc. Computer Science — University of Debrecen (Merit Scholarship)",
-  "experience_abroad": ["Ireland — 4 years", "Hungary — 3 years"],
-  "languages": ["pt_BR", "en_US", "hu_HU", "ru_RU"],
-  "stack": ["Java", "Spring Boot", "Python", "Django", "FastAPI", "Docker", "PostgreSQL"],
-  "currently": "SOC & Automation Engineer | pursuing eJPT + CompTIA Security+",
-  "research": "LoRA/QLoRA fine-tuning for offensive security applications",
-  "philosophy": "Build → break → understand → rebuild."
-  "now": "SOC & Automation Engineer, studying for eJPT and CompTIA Security+",
-  "based": "São Paulo, BR (EU passport, remote-ready)",
-  "education": "B.Sc. Computer Science, University of Debrecen (merit scholarship)",
-  "abroad": ["Ireland, 4 years", "Hungary, 3 years"],
-  "speaks": ["pt_BR", "en_US", "hu_HU", "ru_RU"],
-  "method": "build → break → understand → rebuild"
-}
+- Dia a dia: operações de segurança em um SOC.
+- Aplicações em produção com usuários reais: Java/Spring Boot e Python/Django, com Docker.
+- Identidade: SSO com OpenID Connect e Keycloak, roles do Microsoft Entra ID controlando o acesso à aplicação e SSH Zero Trust.
+- Ferramentas: OSINT, reconhecimento e scanners escritos do zero, além de CTFs e laboratórios.
+- Cidadão húngaro (sem necessidade de visto na UE). Inglês e português fluentes, húngaro conversacional.
+- **Procuro** vagas de desenvolvedor júnior ou áreas próximas de segurança, remoto ou na Europa.
+
+</details>
+
+---
+
+## Featured: identity & access
+
+### Orbit — Django + Keycloak SSO on Azure
+[`keycloak-poc`](https://github.com/lucachak/keycloak-poc)
+
+A Django app authenticated through OpenID Connect (Authorization Code flow),
+running with Keycloak on an Azure VM behind a TLS-terminating reverse proxy.
+
+```text
+Browser
+   │
+   ├── GET /login ───────────────► Keycloak ──► Microsoft Entra ID
+   │                                  │         (organization tenant only)
+   │◄──────── authorization code ─────┘
+   │
+   ├── GET /auth/callback ───────► Django
+   │                                  ├── exchange the code for tokens
+   │                                  ├── validate signature and claims (JWKS, RS256)
+   │                                  ├── fetch userinfo
+   │                                  └── store identity in the server-side session
+   │
+   ├── POST /api/session/sync ───► Django refreshes the token server-side
+   │                               (roles and groups re-evaluated, every 15 s)
+   │
+   └── POST /logout ─────────────► Keycloak RP-initiated logout
+                                      └── /logged-out
 ```
 
+- Access tokens validated cryptographically against the realm JWKS (RS256 only).
+- Tokens stay server-side; the browser only gets the Django session cookie.
+- Roles consolidated from Keycloak realm roles, Keycloak client roles and Microsoft Entra ID app roles, then mapped to permissions.
+- Per-role dashboards (`viewer`, `analyst`, `pentester`, `admin`) and live role refresh during the session.
+- RP-initiated logout, Docker Compose deployment, NSG/firewall rules on the Azure VM.
+
+**How Entra ID fit in:** Microsoft Entra ID was linked to Keycloak as an
+external identity provider, so Keycloak remained the single issuer the app
+trusted. Sign-in through Entra was limited to accounts in my organization's
+tenant; outside accounts did not get a valid session. Users carried roles
+assigned in Entra and Keycloak, and the app used them to decide access, for
+example one user mapped to SOC access and another to INFRA. Unknown roles grant
+nothing until explicitly mapped, and other clients' roles are ignored.
+
+`Python` `Django` `Keycloak` `OIDC` `Microsoft Entra ID` `Azure VM` `RBAC` `JWKS` `Docker`
+
+### ZTNA / PAM Access Lab — passwordless SSH in Go
+*Proof of concept, private repository.*
+
+A Linux PAM module written in Go (with cgo/C glue) for passwordless,
+policy-driven SSH access.
+
+- An issuer signs access; each VM enrolls with its own key.
+- Every login is validated with an AES key, a timestamp and replay protection before the session opens.
+- Installer, central/satellite configuration profiles and a control server that records session events.
+- Docker lab (systemd containers) simulating one central node and three satellites.
+- Designed for Azure VMs (admin SSH, NSG and firewall). SELinux enforcing on real VMs and Entra ID integration are not validated yet.
+
+`Go` `cgo / C` `Linux PAM` `Zero Trust` `SSH` `AES` `Docker`
+
 ---
 
-### `~/projects --live`
-
-Systems currently running in production:
-
-| Project | Description | Stack | Status |
-|---|---|---|---|
-| **[FinGen](https://fingen-app.onrender.com/)** | AI-powered personal finance SaaS — analyzes bank statements (PDF/CSV) and suggests debt payoff strategies via LLM integration | Java · Spring Boot · Docker · OpenRouter AI | 🟢 Live |
-| **[CambioMatic](https://cambiomatic.onrender.com/)** | Full ERP for automotive transmission repair shops — inventory control, service orders, budget generation and client management | Java · Spring Boot · Thymeleaf · PostgreSQL | 🟢 Live |
-| **[Portfolio](https://portifolio-vercel-inky.vercel.app/)** | Interactive developer portfolio | Vercel | 🟢 Live |
-
----
-
-### `~/security --offensive`
-
-> I build the attack first. The defense follows from understanding it.
 ## In production
 
-| Tool | Attack Vector | Defense Applied |
-| Project | What it does | Built with |
-|---|---|---|
-| **[Dirpy](https://github.com/lucachak/Dirpy)** | Endpoint enumeration — discovers hidden routes and admin panels | Enforced authentication on all non-public routes |
-| **[OSIMPY](https://github.com/lucachak/OSIMPY)** | OSINT + dorking — automates personal data and credential exposure discovery | Data minimization, leak remediation, PII scrubbing |
-| **[Arachne](https://github.com/lucachak/Arachne)** | Human-simulated request flooding — Gaussian delays, custom headers, evasion-aware | Rate limiting and behavioral anomaly detection |
-| [**FinGen**](https://fingen-app.onrender.com/) | Personal and household finance. Tracks payables and receivables by scope (house, personal, business), recurring bills and free cash flow, and uses LLMs to analyze statements and suggest budget goals. | Java 21, Spring Boot 3, Docker, Gemini, OpenRouter |
-| [**Cambiomatic**](https://cambiomatic.onrender.com/) | ERP for a mechanic workshop: service orders with customer and vehicle in one step, paginated search, KPI dashboard. | Java 21, Spring Boot, Thymeleaf, PostgreSQL (Neon), Docker |
-| **EletricBike** | Workshop management plus e-commerce for e-bike conversion kits. Orders are kept separate from payments so cash flow stays auditable. | Django, HTMX, Stripe Checkout and webhooks, PostgreSQL |
-| **VMA Contabilidade** | Site and client portal for an accounting firm. | Next.js, React, TypeScript, Tailwind, Supabase, Vercel |
-
-**CTF & Platforms**
-## Security
-
-<p>
-  <img src="https://img.shields.io/badge/picoCTF-~3200_pts-0d1117?style=flat-square&logoColor=4ade80&labelColor=000000&color=4ade80"/>
-  <img src="https://img.shields.io/badge/HackTheBox-Active-0d1117?style=flat-square&logo=hackthebox&logoColor=4ade80&labelColor=000000"/>
-  <img src="https://img.shields.io/badge/TryHackMe-Jr._Pentester_Path-0d1117?style=flat-square&logo=tryhackme&logoColor=4ade80&labelColor=000000"/>
-</p>
-
-**Current research:** Fine-tuning a LoRA/QLoRA model on security-focused datasets — offensive techniques, CVE pattern analysis, and defensive countermeasures — using PyTorch + scikit-learn + TensorFlow.
-
-**Methodology:** APIs designed with offensive principles from the first commit — OWASP threat modeling, JWT/HttpOnly cookie auth, input validation and rate limiting as defaults, not patches.
+| Project | What it does | Stack | Links |
+|---|---|---|---|
+| **FinGen** | Turns bank statement PDFs into structured transactions with Gemini; budgets, recurring bills and an AI financial advisor | Java 21, Spring Boot, Thymeleaf, HTMX, Docker | [Live](https://fingen-app.onrender.com) · [Code](https://github.com/lucachak/FinGen) |
+| **Cambiomatic** | Web ERP for auto repair shops: service orders from quote to invoice, inventory, customers, billing | Java 21, Spring Boot, PostgreSQL (Neon), Docker | [Live](https://cambiomatic.onrender.com) · [Code](https://github.com/lucachak/ERP) |
+| **EletricBike** | E-bike workshop and e-commerce; invoices and payments (Stripe, Pix) kept consistent by webhooks | Django, Stripe, HTMX, PostgreSQL | [Code](https://github.com/lucachak/_) |
+| **VMA Contabilidade** | Lead-generation site for an accounting firm: services, CLT vs PJ calculator, fiscal calendar | Next.js 16, React 19, TypeScript, Supabase | [Code](https://github.com/lucachak/VMA) |
 
 ---
 
-### `~/stack --full`
+## Security tooling & lab work
 
-**Backend**
+- [**OSIMPY**](https://github.com/lucachak/OSIMPY): async defensive OSINT suite with a four-level search-engine fallback and JSON export, for authorized assessments.
+- [**Dirpy**](https://github.com/lucachak/Dirpy): directory scanner in pure Python, with HTTP/HTTPS implemented from scratch against the RFC.
+- **CTFs and recon:** web exploitation, enumeration, JWT attack labs, APK static analysis in sandboxed VMs, network traffic analysis in isolated labs.
 
-![Java](https://img.shields.io/badge/Java-0d1117?style=for-the-badge&logo=openjdk&logoColor=4ade80&labelColor=000000)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-0d1117?style=for-the-badge&logo=springboot&logoColor=4ade80&labelColor=000000)
-![Python](https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=4ade80&labelColor=000000)
-![Django](https://img.shields.io/badge/Django-0d1117?style=for-the-badge&logo=django&logoColor=4ade80&labelColor=000000)
-![FastAPI](https://img.shields.io/badge/FastAPI-0d1117?style=for-the-badge&logo=fastapi&logoColor=4ade80&labelColor=000000)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-0d1117?style=for-the-badge&logo=python&logoColor=4ade80&labelColor=000000)
+## Other projects
 
-**Automation & AI**
-
-![Selenium](https://img.shields.io/badge/Selenium-0d1117?style=for-the-badge&logo=selenium&logoColor=4ade80&labelColor=000000)
-![PyAutoGUI](https://img.shields.io/badge/PyAutoGUI-0d1117?style=for-the-badge&logo=python&logoColor=4ade80&labelColor=000000)
-![PyTorch](https://img.shields.io/badge/PyTorch-0d1117?style=for-the-badge&logo=pytorch&logoColor=4ade80&labelColor=000000)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-0d1117?style=for-the-badge&logo=scikitlearn&logoColor=4ade80&labelColor=000000)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-0d1117?style=for-the-badge&logo=tensorflow&logoColor=4ade80&labelColor=000000)
-| Project | What it does | What I wanted to learn |
-|---|---|---|
-| [**Dirpy**](https://github.com/lucachak/Dirpy) | Directory brute-forcer in pure Python, no third-party packages. HTTP and HTTPS written against the RFCs. | What DIRB and Gobuster actually do before trusting them |
-| [**OSIMPY**](https://github.com/lucachak/OSIMPY) | Async OSINT and dorking suite with fallback across search engines, for assessing your own organization's exposure. | How leaks surface in public search, and how to find them first |
-| [**Arachne**](https://github.com/lucachak/Arachne) | Browser automation that fills job applications from a single resume model. Selenium and undetected-chromedriver, Gaussian delays to behave like a person. | How far bot detection can be evaded, and where it can't |
-| **pam-poc** | PAM module for SSH. An issuer signs short-lived access tokens, the VM verifies them against its public key. LDAP provider plugin, installer, and a lab of five systemd containers (CA and panel, three endpoints, one operator). | Zero-trust access without a middleman |
-| **Orbit** | Django behind Keycloak. OIDC authorization code flow, JWKS validation, realm, client and Entra roles mapped to permissions, per-role dashboards. Tokens never reach the browser's JavaScript. | Doing OIDC and RBAC correctly end to end |
-
-**Infrastructure**
-CTF and labs: HackTheBox, TryHackMe Jr. Pentester path.
-
-![Docker](https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=4ade80&labelColor=000000)
-![Nginx](https://img.shields.io/badge/Nginx-0d1117?style=for-the-badge&logo=nginx&logoColor=4ade80&labelColor=000000)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=4ade80&labelColor=000000)
-![MySQL](https://img.shields.io/badge/MySQL-0d1117?style=for-the-badge&logo=mysql&logoColor=4ade80&labelColor=000000)
-![SQLite](https://img.shields.io/badge/SQLite-0d1117?style=for-the-badge&logo=sqlite&logoColor=4ade80&labelColor=000000)
-![VMware](https://img.shields.io/badge/VMware-0d1117?style=for-the-badge&logo=vmware&logoColor=4ade80&labelColor=000000)
-## Also building
-
-**Tooling**
-- **Onda**: music app in Portuguese. React Native, TypeScript, Expo.
-- **Plataforma de Ensino**: courses app with student and teacher areas. React Native and FastAPI.
-- **CourierIQ**: delivery route optimizer. Heuristic multi-stop routing, a Random Forest ETA model trained in notebooks (exploration, feature engineering, training), served by FastAPI. Python, scikit-learn.
-
-![Arch Linux](https://img.shields.io/badge/Arch_Linux-0d1117?style=for-the-badge&logo=archlinux&logoColor=4ade80&labelColor=000000)
-![Neovim](https://img.shields.io/badge/Neovim-0d1117?style=for-the-badge&logo=neovim&logoColor=4ade80&labelColor=000000)
-![Git](https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=4ade80&labelColor=000000)
-## What I reach for
-
-**Depth**
-- Python internals — `__slots__`, metaclasses, dunder methods for memory and performance optimization; pure stdlib when portability matters
-- Spring Boot — custom security filters, JWT/HttpOnly cookies, service-layer architecture
-- Infra — containerized production deployments on Docker; VM management on VMware, VirtualBox and QEMU (including GPU passthrough); Nginx reverse proxy + WSGI configuration
-- WebSocket integration (basic)
-- **Backend**: Java and Spring Boot (custom security filters, JWT in HttpOnly cookies, service-layer architecture). Python with Django, FastAPI and SQLAlchemy.
-- **Systems**: Go and C for the PAM work. PostgreSQL, MySQL, SQLite.
-- **Front end**: HTMX, Next.js and TypeScript, React Native.
-- **Infra**: Docker in production, Nginx, VMware, VirtualBox and QEMU with GPU passthrough. Arch Linux and Neovim every day.
-- **Security by default**: OWASP threat modeling at the start, input validation and rate limiting as defaults, not patches.
-
----
-## Currently
-
-### `~/metrics`
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=lucachak&bg_color=0D1117&color=4ade80&line=4ade80&point=ffffff&area=true&hide_border=true" width="97%"/>
-</p>
-Exploring LoRA and QLoRA fine-tuning on security datasets (offensive techniques, CVE patterns, countermeasures) with PyTorch.
+- [**CourierIQ**](https://github.com/lucachak/CourierIQ): multi-stop route optimization and ETA prediction behind a FastAPI service.
+- **Onda**: music app in React Native (Expo) and TypeScript. *Private.*
+- **Learning platform**: React Native client with a FastAPI backend and student/teacher roles. *Local project.*
 
 ---
 
-<div align="center">
-  <i>"Complexity is the enemy of execution. Keep the code clean, the architecture secure, the deploy automated."</i>
-</div>
+## Stack
 
-<!-- FOOTER -->
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,100:000000&height=80" width="100%"/>
-*Complexity is the enemy of execution. Keep the code clean, the architecture secure, the deploy automated.*
+| Area | Tools |
+|---|---|
+| **Identity & access** | Keycloak, OpenID Connect, OAuth 2.0, Microsoft Entra ID, JWT/JWKS, RBAC, Linux PAM, Zero Trust |
+| **Languages** | Python, Java 21, Go, C, TypeScript, SQL |
+| **Backend** | Django, FastAPI, Spring Boot, REST APIs, HTMX, Celery |
+| **Cloud & ops** | Azure VMs, NSG/firewall rules, Docker, Docker Compose, reverse proxy / TLS, GitHub Actions, Render, Vercel, Linux |
+| **Data** | PostgreSQL, Neon, SQLite, Supabase |
+| **Frontend & mobile** | Next.js, React, React Native (Expo), Tailwind CSS, Thymeleaf |
+| **Security** | SOC operations, ethical hacking, OSINT, web recon, CTF, secure session handling |
+
+---
+
+## Contact
+
+Hiring for backend, identity or security work? I'm available immediately,
+full-time or part-time, and used to working across time zones including
+Central Europe.
+
+📧 [lucas.lucachak9@gmail.com](mailto:lucas.lucachak9@gmail.com) ·
+💼 [linkedin.com/in/lucachak-dev](https://linkedin.com/in/lucachak-dev) ·
+🌐 [Portfolio](https://portifolio-vercel-inky.vercel.app)
